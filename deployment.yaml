@@ -16,6 +16,6 @@ spec:
     spec:
       containers:
         - name: az-aks-service
-          image: rudrayyaswamy/az-aks-service:latest
+          image: acrsimpledemo.azurecr.io/az-aks-service:latest
           ports:
             - containerPort: 8080
