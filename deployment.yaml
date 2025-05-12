@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: az-aks-service
+  labels:
+    app: az-aks-service
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: az-aks-service
+  template:
+    metadata:
+      labels:
+        app: az-aks-service
+    spec:
+      containers:
+        - name: az-aks-service
+          image: rudrayyaswamy/az-aks-service:latest
+          ports:
+            - containerPort: 8080
