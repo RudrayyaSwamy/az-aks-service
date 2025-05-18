@@ -1,4 +1,3 @@
-# mysql-deployment.yaml
 apiVersion: apps/v1
 kind: Deployment
 metadata:
@@ -17,12 +16,13 @@ spec:
         - name: mysql
           image: mysql:8
           env:
-            - name: SPRING_DATASOURCE_URL
-              value: "jdbc:mysql://mysql:3306/azuredemodb?useSSL=false&serverTimezone=UTC"
-            - name: SPRING_DATASOURCE_USERNAME
-              value: "Rudrayya"
-            - name: SPRING_DATASOURCE_PASSWORD
-              value: "Admin@123"
-
+            - name: MYSQL_DATABASE
+              value: azuredemodb
+            - name: MYSQL_USER
+              value: Rudrayya
+            - name: MYSQL_PASSWORD
+              value: Admin@123
+            - name: MYSQL_ROOT_PASSWORD
+              value: Admin@123
           ports:
             - containerPort: 3306
