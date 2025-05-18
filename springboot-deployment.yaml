@@ -1,9 +1,8 @@
+# springboot-mysql-deployment.yaml
 apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: az-aks-service
-  labels:
-    app: az-aks-service
 spec:
   replicas: 2
   selector:
@@ -19,10 +18,4 @@ spec:
           image: acrsimpledemo.azurecr.io/az-aks-service:latest
           ports:
             - containerPort: 8080
-          env:
-            - name: SPRING_DATASOURCE_URL
-              value: "jdbc:mysql://simpledb.mysql.database.azure.com:3306/azuredemodb?useSSL=true&requireSSL=false&serverTimezone=UTC"
-            - name: SPRING_DATASOURCE_USERNAME
-              value: "Rudrayya"
-            - name: SPRING_DATASOURCE_PASSWORD
-              value: "Admin@123"
+            - containerPort: 8080
